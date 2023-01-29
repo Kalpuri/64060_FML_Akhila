@@ -1,0 +1,63 @@
+---
+title: "ASSIGNMENT 1"
+author: "AKHILA KALPURI"
+date: "2023-01-28"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+
+
+```{r}
+#Importing dataset by giving the path
+univ_bank <- read.csv("C://Users//vishe//Downloads//archive//UniversalBank.csv")
+```
+
+
+```{r}
+#viewing the dataset by using the view()
+View(univ_bank)
+```
+
+
+
+```{r}
+#Finding mean for age of the people having account in Universal bank by using mean()
+
+mean(univ_bank$Age)
+#Finding the standard deviation for the age of the people having account in Universal bank by using sd()
+
+sd(univ_bank$Age)
+#The below value show descriptive statistics for a selection of quanitiative variable.
+```
+
+```{r}
+ table(univ_bank$Age)
+str(univ_bank)
+#The below values represent categorical descriptive analysis of the variable.
+```
+
+```{r}
+#below is the data transformation
+univ_bank$Age <- (univ_bank$Age - mean(univ_bank$Experience)/sd(univ_bank$Age))
+univ_bank$Age
+```
+
+```{r}
+#below is the histogram of data 
+hist(univ_bank$Age)
+```
+
+```{r}
+#plotting the data. Here we have use age and experience for plotting.
+#showing a linear regression line in the below graph define in colour "blue"
+x <- univ_bank$Age
+y <- univ_bank$Experience
+
+plot(x,y, main = "age and experience of universal bank" , xlab = "age" , ylab = "Experience")
+abline(lm(y~x),col ="blue")
+```
+
